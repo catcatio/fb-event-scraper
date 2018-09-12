@@ -1,9 +1,9 @@
 const osmosis = require('osmosis')
 
 export default (fbEventUrl) => {
-  const startTime = Date.now()
   const scrap = (url) => new Promise((resolve) => {
     let final = {}
+    const startTime = Date.now()
     osmosis.get(`${fbEventUrl}${url}`)
       .find('#event_header_primary')
       .set({ title: 'h1' })
