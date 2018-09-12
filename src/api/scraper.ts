@@ -3,8 +3,11 @@ const osmosis = require('osmosis')
 export default (fbEventUrl) => {
   const scrap = (url) => new Promise((resolve) => {
     let final = {}
-    const startTime = Date.now()
+    let startTime
     osmosis.get(`${fbEventUrl}${url}`)
+      .then(() => {
+        startTime = Date.now()
+      })
       .find('#event_header_primary')
       .set({ title: 'h1' })
       .find('img.scaledImageFitHeight')
