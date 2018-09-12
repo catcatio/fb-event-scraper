@@ -10,6 +10,7 @@ const cache = new LRU({
 const urlKey = (url) => md5(url)
 
 const loadPage = async (url) => {
+  const startTime = Date.now()
   try {
     const browser = await puppeteer.launch({
       executablePath: process.env.CHROME_BIN || undefined,
@@ -27,6 +28,8 @@ const loadPage = async (url) => {
   } catch (error) {
     console.log(`puppeteer ${error}`)
     return ''
+  } finally {
+    console.log(`loadPage ${url} took ${Date.now() - startTime} ms.`)
   }
 }
 

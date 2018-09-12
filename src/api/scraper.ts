@@ -1,6 +1,7 @@
 const osmosis = require('osmosis')
 
 export default (fbEventUrl) => {
+  const startTime = Date.now()
   const scrap = (url) => new Promise((resolve) => {
     let final = {}
     osmosis.get(`${fbEventUrl}${url}`)
@@ -24,7 +25,7 @@ export default (fbEventUrl) => {
       })
       .done(() => {
         resolve(final)
-        console.log(`osmosis done: ${url}`)
+        console.log(`osmosis ${url} took ${Date.now() - startTime} ms.`)
       })
       .log(console.log)
       .error(console.error)
