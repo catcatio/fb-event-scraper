@@ -1,4 +1,5 @@
-const url = 'http://www.facebook.com/events/2264532963783817/'
+require('dotenv/config')
+
 const puppeteer = require('puppeteer')
 const md5 = require('md5')
 const LRU = require("lru-cache")
@@ -109,7 +110,6 @@ const scrap = (url) => new Promise((resolve, reject) => {
 
 const start = async (port) => {
   await startExpress(port)
-  // await scrap(url)
 }
 
 start(port).then(() => console.log('= = D O N E = ='))
