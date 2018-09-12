@@ -38,6 +38,7 @@ curl http://localhost:3000/scrap/?url=https://www.facebook.com/events/2185490331
 ```
 
 output
+
 ```JSON
 {
     "title": "Chatbots & Blockchain",

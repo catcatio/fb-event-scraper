@@ -8,12 +8,14 @@
     "build:once": "tsc",
     "lint": "tslint .",
     "up": "docker-compose up -d",
+    "up:dev": "docker-compose up",
     "down": "docker-compose down"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@rabbotio/noconsole": "^1.1.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
@@ -23,7 +25,12 @@
     "puppeteer": "^1.8.0"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/lru-cache": "^4.1.1",
+    "@types/md5": "^2.1.32",
     "@types/node": "^10.9.4",
+    "@types/osmosis": "^1.1.0",
+    "@types/puppeteer": "^1.6.3",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
   }
