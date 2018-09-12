@@ -43,4 +43,4 @@ WORKDIR /usr/app
 
 VOLUME ["/usr/app"]
 
-ENTRYPOINT ["pm2-runtime", "start", "pm2.json"]
+# ENTRYPOINT ["pm2-runtime", "start", "pm2.json"]
