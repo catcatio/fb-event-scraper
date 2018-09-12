@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "noEmitOnError": false,
+    "moduleResolution": "node",
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "skipDefaultLibCheck": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "jsx": "react",
+    "outDir": "lib",
+    "lib": [
+      "es6",
+      "es7",
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "node_modules/**",
+    "scripts",
+    "lib"
+  ],
+  "include": [
+    "src"
+  ],
+  "compileOnSave": true
+}

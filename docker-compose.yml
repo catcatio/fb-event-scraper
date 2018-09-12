@@ -1,0 +1,26 @@
+
+version: "3"
+
+services:
+  fb-event-scraper:
+    container_name: fb-event-scraper
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      - PORT=${PORT:-9095}
+      - PM2_PORT=${PM2_PORT:-8095}
+    image: catcatio/fb-event-scraper
+    working_dir: /usr/app
+    ports:
+      - "${PORT:-9095}:${PORT:-9095}"
+      - "${PM2_PORT:-8095}:${PM2_PORT:-8095}"
+    volumes:
+      - .:/usr/app
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://localhost:${LS_PORT:-12201}
+        tag: "fb-event-scraper"
+    command: sh scripts/startup.sh

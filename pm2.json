@@ -1,0 +1,10 @@
+[
+  {
+    "name": "fb-event-scraper",
+    "script": "src/index.ts",
+    "instances": "1",
+    "exec_mode" : "cluster",
+    "ignore_watch": ["node_modules", ".git"],
+    "watch": true
+  }
+]
