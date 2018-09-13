@@ -10,7 +10,7 @@ export default (fbEventUrl) => {
       })
       .find('#event_header_primary')
       .set({ title: 'h1' })
-      .find('img.scaledImageFitHeight')
+      .find('img.scaledImageFitWidth, img.scaledImageFitHeight')
       .set({ coverImage: '@src' })
       .find('#event_time_info')
       .set({ eventTime: 'div@content' })

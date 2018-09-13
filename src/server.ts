@@ -1,30 +1,20 @@
-import scraper from './api/scraper'
-import fbEventLoader from './api/loadFbEvent'
 import initExpress from './initExpress'
+import initApi from './initApi'
+import initMailer from './initMailer'
+
+const start = async (config) => {
+  const app = await initExpress(config)
+  await initApi(app, config)
+  const mailer = initMailer(config)
+
+  const wd = require('./watchdog')(config)
+  wd.start((diff, html) => {
+    console.error('!!! result mismatched !!!')
+    console.log(diff)
+    mailer.send(html)
+  })
+}
 
 export default {
-  start: async (config) => {
-    const scrap = scraper(`http://localhost:${config.port}/loadFbEvent?fbEventUrl=`)
-    const loadFbEvent = fbEventLoader()
-
-    const app = await initExpress(config)
-
-    app.use('/scrap', (req, res) => {
-      const url = req.query.url
-      scrap(url).then((json) => res.json(json))
-    })
-
-    app.use('/loadFbEvent', (req, res) => {
-      const fbEventUrl = req.query.fbEventUrl
-      console.log(fbEventUrl)
-      if (fbEventUrl) {
-        loadFbEvent(fbEventUrl).then((html) => {
-          res.send(html)
-        })
-      }
-      else {
-        res.sendStatus(400)
-      }
-    })
-  }
+  start
 }
