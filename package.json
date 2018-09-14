@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@rabbotio/noconsole": "^1.1.0",
-    "ansi-to-html": "^0.6.6",
     "body-parser": "^1.18.3",
     "diff2html": "^2.4.0",
     "dotenv": "^6.0.0",
