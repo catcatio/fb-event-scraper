@@ -17,6 +17,7 @@ RUN apk update && \
     chromium@3.8 \
     nss@3.8 \
     # other dependencies
+    git \
     binutils-gold \
     curl \
     g++ \

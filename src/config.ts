@@ -4,6 +4,7 @@ const watchdogInterval = parseInt(process.env.WATCHDOG_INTERVAL) || 86400000
 const watchdogEventUrl = process.env.WATCHDOG_EVENT_URL
 const watchdogScrapUrl = `http://localhost:${port}/scrap/`
 const watchdogExpectedResult = !watchdogEnabled ? {} : require(`../${process.env.WATCHDOG_EXPECTED_FILE}`)
+console.log('watchdogInterval', watchdogInterval)
 
 export default {
   port,
