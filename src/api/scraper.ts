@@ -19,7 +19,7 @@ export default (fbEventUrl) => {
         venue: 'tr > td:skip(1) > div > div',
         venueLink: '.hidden_elem > div > div:last a[role=button]@href'
       })
-      .find('#reaction_units > div > div:first > div > div:last')
+      .find('div._63ew')
       .set({
         description: 'span',
       })

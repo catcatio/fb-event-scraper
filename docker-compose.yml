@@ -18,9 +18,9 @@ services:
       - "${PM2_PORT:-8095}:${PM2_PORT:-8095}"
     volumes:
       - .:/usr/app
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://localhost:${LS_PORT:-12201}
-        tag: "fb-event-scraper"
+    # logging:
+    #   driver: gelf
+    #   options:
+    #     gelf-address: udp://localhost:${LS_PORT:-12201}
+    #     tag: "fb-event-scraper"
     command: sh scripts/startup.sh

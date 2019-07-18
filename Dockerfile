@@ -9,13 +9,15 @@ ENV CHROME_BIN=/usr/bin/chromium-browser
 
 RUN apk update && \
     apk upgrade && \
-    echo @3.8 https://ftp.acc.umu.se/mirror/alpinelinux.org/v3.8/community >> /etc/apk/repositories && \
-    echo @3.8 https://ftp.acc.umu.se/mirror/alpinelinux.org/v3.8/main >> /etc/apk/repositories && \
+    echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
+    echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
     apk add --no-cache \
-    freetype@3.8 \
-    harfbuzz@3.8 \
-    chromium@3.8 \
-    nss@3.8 \
+    chromium@edge=~73.0.3683.103 \
+    nss@edge \
+    freetype@edge \
+    freetype-dev@edge \
+    harfbuzz@edge \
+    ttf-freefont@edge \
     # other dependencies
     git \
     binutils-gold \
